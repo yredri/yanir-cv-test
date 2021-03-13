@@ -4,7 +4,7 @@
     </mat-form-field>
 </div>
 
-<button mat-raised-button color="primary" (click)="addNewProduct()" >Add Product</button>
+<button mat-raised-button class="new-product-btn" color="primary" (click)="addNewProduct()" >Add Product</button>
 
 <mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="date">
@@ -31,7 +31,7 @@
             <button mat-button color="accent" (click)="onDeleteProduct(element.id)" >delete</button>
         </mat-cell>
     </ng-container>
-    
+
     <mat-header-row *matHeaderRowDef="displayedColumns "></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
