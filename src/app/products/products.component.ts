@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   private productsSubscription: Subscription;
-  displayedColumns = ['date', 'name', 'description', 'price', 'actions']; 
+  displayedColumns = ['image', 'date', 'name', 'description', 'price', 'actions']; 
   dataSource = new MatTableDataSource<Product>();
   selectedProduct: Product;
 
