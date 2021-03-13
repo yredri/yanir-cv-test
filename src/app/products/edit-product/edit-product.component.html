@@ -1,0 +1,55 @@
+<div class="edit-product">
+    <h1>Add New Product</h1>
+    <form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center" #f="ngForm" (ngSubmit)="onSubmit(f); f.reset()">
+        <mat-form-field appearance="outline">
+             <input 
+                [value]="product?.name"
+                 matInput 
+                 type="text" 
+                 name="name" 
+                 required 
+                 placeholder="Product Name" 
+                 ngModel
+                 #nameInput="ngModel"
+                >
+            <mat-label>Product Name</mat-label>
+            <mat-error *ngIf="nameInput.hasError('required')">field must not be empty</mat-error>
+        </mat-form-field> 
+ 
+        <mat-form-field appearance="outline">
+             <textarea 
+             [value]="product?.description"
+                 matInput 
+                 name="description" 
+                 placeholder="Product Description" 
+                 ngModel
+                 #description="ngModel"
+                 maxlength="200" >
+            </textarea>
+ 
+             <mat-hint align="end" >{{description.value?.length}} / 200</mat-hint>
+             <mat-label>
+                 Product Description
+             </mat-label>
+         </mat-form-field> 
+ 
+         <mat-form-field  appearance="outline">
+             <mat-label>Price</mat-label>
+             <input
+             [value]="product?.price"
+                matInput 
+                type="number" 
+                name="price" 
+                required 
+                placeholder="Price" 
+                ngModel
+                #priceInput="ngModel"
+                >
+        <mat-error *ngIf="nameInput.hasError('required')">field cannot be empty or zero</mat-error>
+             
+         </mat-form-field>
+ 
+ 
+         <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Save</button>
+     </form>
+</div>
