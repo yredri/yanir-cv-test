@@ -10,6 +10,7 @@ import { ProductService } from '../product.service';
 })
 export class EditProductComponent implements OnInit {
   @Input() product: Product;
+  @Input() title: string;
   @Output() modalClose = new EventEmitter<void>();
 
   constructor(private productService: ProductService) { }
@@ -32,6 +33,7 @@ export class EditProductComponent implements OnInit {
         description: form.value.description,
         price: form.value.price
       })
+      form.reset();
       this.modalClose.emit()
     }
     

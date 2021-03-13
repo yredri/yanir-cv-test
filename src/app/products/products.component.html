@@ -1,3 +1,9 @@
+
+<div class="products">
+
+<div class="list">
+
+
 <div fxLayoutAlign="center center">
     <mat-form-field fxFlex="40%">
         <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
@@ -41,3 +47,9 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+<div class="edit-product">
+    <app-edit-product [product]="selectedProduct" [title]="'Edit Product'" (modalClose)="onNewProductSubmit()"></app-edit-product>
+</div>
+</div>

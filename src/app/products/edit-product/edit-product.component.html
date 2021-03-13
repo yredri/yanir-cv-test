@@ -1,6 +1,6 @@
 <div class="edit-product">
-    <h1>Add New Product</h1>
-    <form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center" #f="ngForm" (ngSubmit)="onSubmit(f); f.reset()">
+    <h1>{{title}}</h1>
+    <form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center" #f="ngForm" (ngSubmit)="onSubmit(f)">
         <mat-form-field appearance="outline">
              <input 
                 [value]="product?.name"
@@ -10,8 +10,7 @@
                  required 
                  placeholder="Product Name" 
                  ngModel
-                 #nameInput="ngModel"
-                >
+                 #nameInput="ngModel">
             <mat-label>Product Name</mat-label>
             <mat-error *ngIf="nameInput.hasError('required')">field must not be empty</mat-error>
         </mat-form-field> 
@@ -24,12 +23,11 @@
                  placeholder="Product Description" 
                  ngModel
                  #description="ngModel"
-                 maxlength="200" >
+                 maxlength="200">
             </textarea>
- 
              <mat-hint align="end" >{{description.value?.length}} / 200</mat-hint>
              <mat-label>
-                 Product Description
+                Description
              </mat-label>
          </mat-form-field> 
  
